@@ -1,18 +1,27 @@
 <?php
+/**
+ * a PHP client library for pubsubhubbub
+ * 
+ * @link    http://code.google.com/p/pubsubhubbub/
+ * @author  Josh Fraser | joshfraser.com | josh@eventvue.com
+ * @license Apache License 2.0
+ */
 
-// a PHP client library for pubsubhubbub
-// as defined at http://code.google.com/p/pubsubhubbub/
-// written by Josh Fraser | joshfraser.com | josh@eventvue.com
-// Released under Apache License 2.0
+namespace pubsubhubbub\publisher;
 
 class Publisher {
-    
+    /** @var string */
     protected $hub_url;
+    
+    /** @var string */
     protected $last_response;
     
-    // create a new Publisher
+    /**
+     * create a new Publisher
+     * 
+     * @param string $hub_url
+     */
     public function __construct($hub_url) {
-        
         if (!isset($hub_url))
             throw new Exception('Please specify a hub url');
         
@@ -22,7 +31,13 @@ class Publisher {
         $this->hub_url = $hub_url;
     }
 
-    // accepts either a single url or an array of urls
+    /**
+     * accepts either a single url or an array of urls
+     * 
+     * @param  string|array $topic_urls
+     * @param  callable     $http_function
+     * @return mixed
+     */
     public function publish_update($topic_urls, $http_function = false) {
         if (!isset($topic_urls))
             throw new Exception('Please specify a topic url');
@@ -53,14 +68,23 @@ class Publisher {
             return $this->http_post($this->hub_url,$post_string);
     }
 
-    // returns any error message from the latest request
+    /**
+     * returns any error message from the latest request
+     * 
+     * @return string
+     */
     public function last_response() {
         return $this->last_response;
     }
     
-    // default http function that uses curl to post to the hub endpoint
+    /**
+     * default http function that uses curl to post to the hub endpoint
+     * 
+     * @param  string $url
+     * @param  string $post_string
+     * @return bool
+     */
     private function http_post($url, $post_string) {
-        
         // add any additional curl options here
         $options = array(CURLOPT_URL => $url,
                          CURLOPT_POST => true,
@@ -76,11 +100,6 @@ class Publisher {
 
         curl_close($ch);
         
-        // all good
-        if ($info['http_code'] == 204) 
-            return true;
-        return false;	
+        return ($info['http_code'] == 204);
     }
 }
-
-?>
