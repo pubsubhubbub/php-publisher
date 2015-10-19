@@ -1,11 +1,13 @@
 <?php
+/**
+ * example usage for the PHP client library for pubsubhubbub
+ * 
+ * @link    http://code.google.com/p/pubsubhubbub/
+ * @author  Josh Fraser | joshfraser.com | josh@eventvue.com
+ * @license Apache License 2.0
+ */
 
-// example usage for the PHP client library for pubsubhubbub
-// as defined at http://code.google.com/p/pubsubhubbub/
-// written by Josh Fraser | joshfraser.com | josh@eventvue.com
-// Released under Apache License 2.0
-
-include("../library/publisher.php");
+use pubsubhubbub\publisher\Publisher;
 
 echo "<center>";
 
@@ -47,5 +49,3 @@ if ($_POST['sub']) {
 }
 
 echo "</center>";
-
-?>
