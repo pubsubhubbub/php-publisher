@@ -2,7 +2,7 @@
 /**
  * a PHP client library for pubsubhubbub
  * 
- * @link    http://code.google.com/p/pubsubhubbub/
+ * @link    https://github.com/pubsubhubbub/
  * @author  Josh Fraser | joshfraser.com | josh@eventvue.com
  * @license Apache License 2.0
  */
@@ -23,10 +23,10 @@ class Publisher {
      */
     public function __construct($hub_url) {
         if (!isset($hub_url))
-            throw new Exception('Please specify a hub url');
+            throw new \Exception('Please specify a hub url');
         
         if (!preg_match("|^https?://|i",$hub_url)) 
-            throw new Exception('The specified hub url does not appear to be valid: '.$hub_url);
+            throw new \Exception('The specified hub url does not appear to be valid: '.$hub_url);
             
         $this->hub_url = $hub_url;
     }
@@ -40,7 +40,7 @@ class Publisher {
      */
     public function publish_update($topic_urls, $http_function = false) {
         if (!isset($topic_urls))
-            throw new Exception('Please specify a topic url');
+            throw new \Exception('Please specify a topic url');
         
         // check that we're working with an array
         if (!is_array($topic_urls)) {
@@ -54,7 +54,7 @@ class Publisher {
 
             // lightweight check that we're actually working w/ a valid url
             if (!preg_match("|^https?://|i",$topic_url)) 
-                throw new Exception('The specified topic url does not appear to be valid: '.$topic_url);
+                throw new \Exception('The specified topic url does not appear to be valid: '.$topic_url);
             
             // append the topic url parameters
             $post_string .= "&hub.url=".urlencode($topic_url);
