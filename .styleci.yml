@@ -1,0 +1,13 @@
+preset: recommended
+
+enabled:
+  - concat_with_spaces
+  - no_useless_else
+  - not_operator_with_successor_space
+
+disabled:
+  - concat_without_spaces
+
+finder:
+  exclude:
+    - "examples"
