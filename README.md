@@ -3,7 +3,7 @@ This PHP library for PubSubHubbub was written by [Josh Fraser](http://joshfraser
 # Install
 Update your `composer` require block:
 ```json
-"require": { "pubsubhubbub\\publisher\\": "*" }
+"require": { "pubsubhubbub/publisher": "*" }
 ```
 
 # Usage
