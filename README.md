@@ -10,7 +10,7 @@ Update your `composer` require block:
 ```php
 use pubsubhubbub\publisher\Publisher;
 
-// specify which hub you want to use. in this case we'll use the demo hub on app engine.
+// specify which hub you want to use. In this case we'll use the demo hub on app engine.
 $hub_url = "http://pubsubhubbub.appspot.com/";
 
 // create a new pubsubhubbub publisher
