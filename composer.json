@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": "~5.4 || ~7.0",
-        "ext-curl": "*",
+        "ext-curl": "*"
     },
     "autoload": {        
         "psr-4": { "pubsubhubbub\\publisher\\": "library/" }
