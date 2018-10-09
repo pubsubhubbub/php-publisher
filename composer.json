@@ -2,7 +2,7 @@
     "name": "pubsubhubbub/publisher",
     "type": "library",
     "description": "pubsubhubbub implementation of publisher.",
-    "keywords": ["pubsubhubbub", "publishers", "data", "feeds"],
+    "keywords": ["pubsubhubbub", "publishers", "data", "feeds", "websub"],
     "homepage": "https://github.com/pubsubhubbub/php-publisher",
     "license": "Apache-2.0",
     "authors": [
